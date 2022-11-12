@@ -4,7 +4,7 @@ metadata:
   name: mysql-pv-claim
 spec:
   storageClassName: manual
-  accessMode:
+  accessModes:
     - ReadWriteOnce
   resources:
     requests:
