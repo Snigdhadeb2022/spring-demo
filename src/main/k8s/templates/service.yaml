@@ -5,8 +5,8 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: spring-demo
-    ports:
-      - protocol: "TCP"
-        port: 8080
-        targetPort: 8080
-    type: Nodeport
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: Nodeport
