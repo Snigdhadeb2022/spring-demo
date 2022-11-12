@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: spring-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-demo
+  template:
+    metadata:
+      labels:
+        app: spring-demo
+    spec:
+      containers:
+      - name: spring-demo
+        image: gcr.io/high-wave-368116/spring-demo
+        ports:
+        - containerPort: 8080
+
+
