@@ -18,10 +18,26 @@ spec:
       - name: spring-crud-demo
         image: gcr.io/high-wave-368116/spring-demo:1.0
         env:
+          - name: MYSQL_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: db_username
           - name: MYSQL_ROOT_PASSWORD
-            value: password
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: db_password
           - name: DB_HOST
-            value: mysql
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-config-map
+                key: db_host
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-config-map
+                key: db_name
         ports:
         - containerPort: 8080
 
